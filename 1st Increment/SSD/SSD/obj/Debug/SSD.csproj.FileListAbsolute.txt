@@ -2,3 +2,7 @@ c:\users\yarra\documents\visual studio 2010\Projects\SSD\SSD\bin\SSD.dll
 c:\users\yarra\documents\visual studio 2010\Projects\SSD\SSD\bin\SSD.pdb
 c:\users\yarra\documents\visual studio 2010\Projects\SSD\SSD\obj\Debug\SSD.dll
 c:\users\yarra\documents\visual studio 2010\Projects\SSD\SSD\obj\Debug\SSD.pdb
+C:\Users\pat24_000\Documents\GitHub\SSD-ASE-Project-CS5551\1st Increment\SSD\SSD\bin\SSD.dll
+C:\Users\pat24_000\Documents\GitHub\SSD-ASE-Project-CS5551\1st Increment\SSD\SSD\bin\SSD.pdb
+C:\Users\pat24_000\Documents\GitHub\SSD-ASE-Project-CS5551\1st Increment\SSD\SSD\obj\Debug\SSD.dll
+C:\Users\pat24_000\Documents\GitHub\SSD-ASE-Project-CS5551\1st Increment\SSD\SSD\obj\Debug\SSD.pdb
