@@ -26,6 +26,7 @@
     </div>
     <br />
     <div style="align:left;"><a href="Default.aspx" style="text-decoration:none; color:Blue;">Home -> </a>Services</div><br /><br />
+<<<<<<< HEAD
     <br />
     <h3 style="color:Blue;">Administrator Services</h3>
     <h6>
@@ -44,6 +45,9 @@
     <li>Students can access to nearest parking spots in and around the campus.</li>
     </ul>
     </h6>
+=======
+
+>>>>>>> fba128506b31187cdfc591bd22ae4e585eaf5695
 <div class="footer">
             <p>&copy; UMKC - SSD 2014. Design by <a href="http://www.yarrasuresh9999.blogspot.com/" target="_blank">Students at UMKC</a>  | Email questions or comments about this website to syvd3 or pat24@mail.umkc.edu</p>
     </div>
