@@ -98,12 +98,25 @@
     <td style="color:Blue;border-bottom-width:0px; width:auto;">Student ID</td><td style="color:Blue;border-bottom-width:0px;">:</td><td style="border-bottom-width:0px;"><asp:TextBox ID="sid" runat="server" Width="150px" MaxLength="50" ></asp:TextBox><asp:RequiredFieldValidator ID="rfsid" runat="server" ControlToValidate="sid" ErrorMessage="Please Enter Student ID" ForeColor="Red"  Display="Dynamic"></asp:RequiredFieldValidator></td>
     </tr>
     <tr style="height:50px;">
+    <td style="color:Blue;border-bottom-width:0px; width:auto;">Password</td><td style="color:Blue;border-bottom-width:0px;">:</td><td style="border-width:0px;">
+    <asp:TextBox  runat="server" ID="regpw" TextMode="Password" Width="150px"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="regpw"
+                ErrorMessage="Please Enter Password" ForeColor="Red" Display="Dynamic" ></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="regrspw" runat="server" Font-Size="Small"
+                ControlToValidate="regpw" ErrorMessage="Length must be 8 or more" ValidationExpression="^[a-zA-Z0-9@!#$%^&*()_+=-`]{8,50}$"
+                ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
+    </td>
+    </tr>
+    <tr style="height:50px;">
+    
+    </tr>
+    <tr style="height:50px;">
     <td style="color:Blue;border-bottom-width:0px;">Student Name</td><td style="color:Blue;border-bottom-width:0px;">:</td><td style="border-bottom-width:0px;"><asp:TextBox ID="sname" runat="server" Width="150px" MaxLength="50" ></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="sname" ErrorMessage="Please Enter Student Name" ForeColor="Red"  Display="Dynamic"></asp:RequiredFieldValidator></td>
     </tr>
     <tr style="height:50px;">
     
-    <td style="color:Blue;">Student Mobile</td><td style="color:Blue;">:</td><td><asp:TextBox ID="smob" runat="server" Width="150px" MaxLength="10" ></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="smob" ErrorMessage="Please Enter Student Mobile No." ForeColor="Red"  Display="Dynamic"></asp:RequiredFieldValidator><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
-                Display="Dynamic" ErrorMessage="Please Enter a Valid Number" ForeColor="Red" ValidationExpression="^[7-9][0-9]{9}$" ControlToValidate="smob"></asp:RegularExpressionValidator></td>
+    <td style="color:Blue;">Student Mobile</td><td style="color:Blue;">:</td><td><asp:TextBox ID="smob" runat="server" Width="150px" MaxLength="15" ></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="smob" ErrorMessage="Please Enter Mobile No." ForeColor="Red"  Display="Dynamic"></asp:RequiredFieldValidator><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                Display="Dynamic" ErrorMessage="Please Enter a Valid Number" ForeColor="Red" ValidationExpression="^([\(]{1}[0-9]{3}[\)]{1}[\.| |\-]{0,1}|^[0-9]{3}[\.|\-| ]?)?[0-9]{3}(\.|\-| )?[0-9]{4}$" ControlToValidate="smob"></asp:RegularExpressionValidator></td>
     </tr>
     <tr>
     <td style="color:Blue;">Permanent Address</td><td style="color:Blue;">:</td><td><asp:TextBox runat="server" ID="permanent" Width="150px" ToolTip="Address" TextMode="MultiLine" Rows="4"></asp:TextBox><asp:RequiredFieldValidator ID="rfsname4" runat="server" 
