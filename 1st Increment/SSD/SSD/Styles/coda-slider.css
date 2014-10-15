@@ -80,10 +80,9 @@
     position: relative;
     clear: left;
 }
-
 .scrollContainer div.panel {
-    height: 478px;
-    width: 488px;
+    height: 700px;
+    width: 600px;
 	overflow: hidden;
 }
 

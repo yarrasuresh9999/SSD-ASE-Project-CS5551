@@ -40,27 +40,68 @@
     <div id="slider">
     <div id="tooplate_wrapper">
     
-    <div style="width:960px;height:400px;">
-    <div style="width:300px;height:400px; float:left;">
+    <div style="width:960px;height:450px;">
+    <div style="width:300px;height:450px; float:left;">
     
     <div id="tooplate_sidebar">
     <div id="menu">
                 <ul class="navigation">
-                    <li><a href="#home" class="selected menu_01">Home</a></li>
-                    <li><a href="#about" class="menu_02">About Us</a></li>
+                    <li><a href="#about" class="selected menu_01">Admin Login</a></li>
+                    <li><a href="#home" class="menu_02">Guidelines for Faculty</a></li>
                     
                 </ul>
             </div>
             </div>
     </div>
-    <div style="width:660px;height:400px;float:right; background-image:url(../images/panelbg.jpg);">
-        <div id="content">
+    <div style="width:660px;height:450px;float:right;background-image:url(../images/panelbg.jpg); background-repeat:no-repeat;">
+        <div id="content" >
             <div class="scroll">
                 <div class="scrollContainer">
-        <div class="panel" id="home">suresh</div>
 
-        <div class="panel" id="about">yarra</div>
+        <div class="panel" id="about">
+        <h4 style="color:Blue;">Admin! Login here to Access the Services</h4>
+        <table>
+<tr>
+<td style="border-width:0px">&nbsp;</td>
+</tr>
+<tr style="border-width:0px;">
+    <td style="border-width:0px;"><font style="font-family:Calibri; font-style:italic; font-size:large;"><b>Username</b></font></td><td style="border-width:0px;">:</td><td style="border-width:0px;">
+    <asp:TextBox runat="server" ID="un"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="un"
+                ErrorMessage="Please Enter Username" ForeColor="Red" Font-Size="Small" Display="Dynamic" ></asp:RequiredFieldValidator>
+    </td>
+</tr>
+<tr>
+    <td style="border-width:0px;"><font style="font-family:Calibri; font-style: italic; font-size: large;"><b>Password</b></font></td><td style="border-width:0px;">:</td><td style="border-width:0px;">
+    <asp:TextBox  runat="server" ID="pw" TextMode="Password" ></asp:TextBox>
+    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="pw"
+                ErrorMessage="Please Enter Password" ForeColor="Red" Font-Size="Small" Display="Dynamic" ></asp:RequiredFieldValidator>
+    </td>
+</tr>
+            
+<tr><td colspan="3" style="border-width:0px;"> &nbsp </td></tr>
+<tr>
+<td colspan="3" style="border-width:0px;"><center>
+    <asp:Button ID="btnlogin" runat="server" Text="Login" Font-Size="Large"
+        onclick="pglogin" Height="35px" Width="110px" /></center></td>
+</tr>
+<tr><td style="border-width:0px;">&nbsp;</td></tr>
+<tr><td colspan="3" style="border-width:0px;"><asp:Label runat="server" ID="er" ForeColor="Red" Text="Invalid Login credentials" Visible="false"></asp:Label></td></tr>
+</table>
 
+        </div>
+        <div class="panel" id="home">
+        <h3 style="color:Blue;">Faculty Guidelines</h3>
+        <br /><h4 style="color:Blue;">Assisting Students with Disabilities in an Emergency</h4>
+        <h6 style="font-style:italic;">From the Federal Emergency Management Agency Web site</h6>
+        <h6>People with disabilities who are self-sufficient under normal circumstances may have to rely on the help of others in a disaster.</h6>
+        <ul>
+        <li style="line-height:1.5em;">People with disabilities often need more time than others to make necessary preparations in an emergency. The needs of older people often are similar to those of persons with disabilities.</li> 
+
+        <li style="line-height:1.5em;">Because disaster warnings are often given by audible means such as sirens and radio announcements, people who are deaf or hard of hearing may not receive early disaster warnings and emergency instructions. Be their source of emergency information as it comes over the radio or television.</li>
+
+        <li style="line-height:1.5em;">Some people who are blind or visually-impaired, especially older people, may be extremely reluctant to leave familiar surroundings when the request for evacuation comes from a stranger.</li> </ul>
+        </div>
         
         </div>
         </div>
