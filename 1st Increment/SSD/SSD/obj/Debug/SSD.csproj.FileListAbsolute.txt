@@ -1,0 +1,4 @@
+c:\users\yarra\documents\visual studio 2010\Projects\SSD\SSD\bin\SSD.dll
+c:\users\yarra\documents\visual studio 2010\Projects\SSD\SSD\bin\SSD.pdb
+c:\users\yarra\documents\visual studio 2010\Projects\SSD\SSD\obj\Debug\SSD.dll
+c:\users\yarra\documents\visual studio 2010\Projects\SSD\SSD\obj\Debug\SSD.pdb
