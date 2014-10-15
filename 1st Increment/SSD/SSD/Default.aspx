@@ -41,9 +41,9 @@
 	
 	     <div id="slider-wrapper">        
             <div id="slider" class="nivoSlider">
-                <img src="images/dis.jpg" alt="" />
-                <img src="images/wheelchair.jpg" alt="" />
-                <img src="images/canlearn.gif" alt="" />
+                <img src="images/slide1.jpg" alt="" />
+                <img src="images/slide2.jpg" alt="" />
+                <img src="images/slide3.jpg" alt="" />
 				
             </div>
 				
@@ -69,7 +69,7 @@
             <ul>
             	<li>
    	      <h4>Admin Services</h4></li>
-                <li><img src="images/logo_adminlogin.jpg" alt="image1" width="270" /></li>
+                <li><img src="images/1.jpg" alt="image1" width="270" /></li>
                 <li>Lorem ipsum dolor sit amet dolor sit, consectetur adipiscing elit. Donec rhoncus mi quis metus laoreet ultricies. </li>
                 <li><a href="AdminLogin.aspx">Read More</a></li>
             </ul>
