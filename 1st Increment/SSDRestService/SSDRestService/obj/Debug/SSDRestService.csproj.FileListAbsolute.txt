@@ -1,0 +1,4 @@
+c:\users\yarra\documents\visual studio 2010\Projects\SSDRestService\SSDRestService\bin\SSDRestService.dll
+c:\users\yarra\documents\visual studio 2010\Projects\SSDRestService\SSDRestService\bin\SSDRestService.pdb
+c:\users\yarra\documents\visual studio 2010\Projects\SSDRestService\SSDRestService\obj\Debug\SSDRestService.dll
+c:\users\yarra\documents\visual studio 2010\Projects\SSDRestService\SSDRestService\obj\Debug\SSDRestService.pdb
