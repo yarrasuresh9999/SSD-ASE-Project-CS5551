@@ -1,0 +1,4 @@
+c:\users\yarra\documents\visual studio 2010\Projects\NewSSD\NewSSD\bin\NewSSD.dll
+c:\users\yarra\documents\visual studio 2010\Projects\NewSSD\NewSSD\bin\NewSSD.pdb
+c:\users\yarra\documents\visual studio 2010\Projects\NewSSD\NewSSD\obj\Debug\NewSSD.dll
+c:\users\yarra\documents\visual studio 2010\Projects\NewSSD\NewSSD\obj\Debug\NewSSD.pdb
