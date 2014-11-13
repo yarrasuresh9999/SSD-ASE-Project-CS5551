@@ -1,13 +1,9 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+﻿<%@ Page Language="C#" AutoEventWireup="true"   CodeBehind="contactus.aspx.cs" Inherits="NewSSD.contactus" %>
+
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Learner a education bootstrap Website Template | Contact :: w3layouts</title>
+<title>Contact Us Page</title>
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
@@ -38,8 +34,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 ['Parking structure', 39.032149, -94.57637, 10],
 
                 ];
-    var address = "5100 Rockhill Rd, University of Missouri-Kansas City, Volker Campus, Kansas City, MO 64110";
-    var address2 = "2995 us highway 412, cardwell, missouri"
+    var address = "215 W. Pershing Road, 5th floor,Kansas City, MO 64108";
 
     function initialize() {
         geocoder = new google.maps.Geocoder();
@@ -216,8 +211,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		        <li><a href="index.html">Home</a></li>
 		        <li><a href="services.html">Services</a></li>
 		        <li><a href="about.html">About</a></li>
-		        <li><a href="blog.html">Blog</a></li>
-		        <li class="active"><a href="contact.html">Contact</a></li>
+		        <li class="active"><a href="contactus.aspx">Contact</a></li>
 		        <li><a href="admin.html">Admin Login</a></li>
 		        <li><a href="student.html">Studnet Login</a></li>
 		        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -251,7 +245,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						 <p>UMKC Institute for Human Development,</p>
 						 <p>215 W. Pershing Road, 5th floor,</p>
 						 <p>Kansas City, MO 64108</p>
-				 	 	<p>Email: <a href="mailto:info@mycompany.com">info(at)mycompany.com</a></p>
+				 	 	<p>Email: <a href="mailto:info@mycompany.com">info(at)umkcssd.com</a></p>
 				   		<p>Our office hours are Monday through Friday, 9:00 am tp 5:00 pm</p>
 				   		<p>Please note: if you are unable to travel to our office location, please contact your Navigator to schedule a face-to-face appointment on campus. We will make arrangements to meet you!</p>
 				   		
@@ -260,22 +254,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 				<div class="col-md-8">
 				  <div class="contact-form">
-				  	<h2>Contact Us</h2>
-					    <form method="post" action="contact-post.html">
+				  	<asp:Label runat="server" Visible="false" Text="Thank you, for submitting your comments, we will reach you soon." ForeColor="Red" Font-Size="Medium" ID="Label3"></asp:Label>
+                    <h2>Contact Us</h2>
+					    <form runat="server">
 					    	<div>
 						    	<span>name</span>
-						    	<span><input type="username" class="form-control" id="userName"></span>
+						    	<span><input type="text" class="form-control" id="userName" runat="server"/></span>
+                                <asp:Label runat="server" Visible="false" Text="Please Enter your Name" ForeColor="Red" Font-Size="Medium" ID="ern"></asp:Label>
 						    </div>
 						    <div>
 						    	<span>e-mail</span>
-						    	<span><input type="email" class="form-control" id="inputEmail3"></span>
+						    	<span><input type="text" class="form-control" id="inputEmail3" runat="server"/></span>
+                                <asp:Label runat="server" Visible="false" Text="E-Mail Can't be empty" ForeColor="Red" Font-Size="Medium" ID="Label1"></asp:Label>
 						    </div>
 						    <div>
 						    	<span>subject</span>
-						    	<span><textarea name="userMsg"> </textarea></span>
+						    	<span><textarea runat="server" id="msg"> </textarea></span>
+                                <asp:Label runat="server" Visible="false" Text="Your Message Can't be empty" ForeColor="Red" Font-Size="Medium" ID="Label2"></asp:Label>
 						    </div>
 						   <div>
-						   		<label class="fa-btn btn-1 btn-1e"><input type="submit" value="submit us"></label>
+						   		<label class="fa-btn btn-1 btn-1e"><asp:Button runat="server" Text="SUBMIT US"  ID="sb" CausesValidation="True" OnClick="subclick" /></label>
 						  </div>
 					    </form>
 				    </div>
@@ -288,7 +286,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="container">
 		<div class="row  footer">
 			<div class="copy text-center">
-				<p class="link"><span>&#169; All rights reserved | Design by&nbsp;<a href="http://w3layouts.com/"> W3Layouts</a></span></p>
+				<p class="link"><span>&#169; All rights reserved</span></p>
 			</div>
 		</div>
 	</div>

@@ -2,3 +2,7 @@ c:\users\yarra\documents\visual studio 2010\Projects\NewSSD\NewSSD\bin\NewSSD.dl
 c:\users\yarra\documents\visual studio 2010\Projects\NewSSD\NewSSD\bin\NewSSD.pdb
 c:\users\yarra\documents\visual studio 2010\Projects\NewSSD\NewSSD\obj\Debug\NewSSD.dll
 c:\users\yarra\documents\visual studio 2010\Projects\NewSSD\NewSSD\obj\Debug\NewSSD.pdb
+C:\Users\yarra\Documents\GitHub\SSD-ASE-Project-CS5551\NewSSD\NewSSD\bin\NewSSD.dll
+C:\Users\yarra\Documents\GitHub\SSD-ASE-Project-CS5551\NewSSD\NewSSD\bin\NewSSD.pdb
+C:\Users\yarra\Documents\GitHub\SSD-ASE-Project-CS5551\NewSSD\NewSSD\obj\Debug\NewSSD.dll
+C:\Users\yarra\Documents\GitHub\SSD-ASE-Project-CS5551\NewSSD\NewSSD\obj\Debug\NewSSD.pdb
