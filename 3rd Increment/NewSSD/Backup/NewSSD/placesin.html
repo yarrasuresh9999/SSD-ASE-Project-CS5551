@@ -1,0 +1,206 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>Welcome to UMKC - Services for Students with Disablities</title>
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ <!--[if lt IE 9]>
+     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- start plugins -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- start slider -->
+<link href="css/slider.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="js/modernizr.custom.28468.js"></script>
+<script type="text/javascript" src="js/jquery.cslider.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;region=US&amp;language=en"></script>
+
+        <link href="placesscript/main.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+        <script src="placesscript/script.js"></script>
+
+	<script type="text/javascript">
+	    $(function () {
+
+	        $('#da-slider').cslider({
+	            autoplay: true,
+	            bgincrement: 450
+	        });
+
+	    });
+		</script>
+<!-- Owl Carousel Assets -->
+<link href="css/owl.carousel.css" rel="stylesheet">
+<script src="js/owl.carousel.js"></script>
+		<script>
+			$(document).ready(function() {
+
+				$("#owl-demo").owlCarousel({
+					items : 4,
+					lazyLoad : true,
+					autoPlay : true,
+					navigation : true,
+					navigationText : ["", ""],
+					rewindNav : false,
+					scrollPerPage : false,
+					pagination : false,
+					paginationNumbers : false,
+				});
+
+			});
+		</script>
+		<!-- //Owl Carousel Assets -->
+<!----font-Awesome----->
+   	<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+<!----font-Awesome----->
+<script type="text/javascript">
+    var userLocation = (function () {
+
+        return {
+
+            init: function () {
+                this.getLocation();
+            },
+
+            getLocation: function () {
+                var self = this;
+                navigator.geolocation.getCurrentPosition(self.geocodeLocation, self.printError);
+            },
+
+            geocodeLocation: function (loc) {
+                var self = userLocation;
+                self.position = {
+                    lat: loc.coords.latitude,
+                    long: loc.coords.longitude
+                }
+                self.geocoder = new google.maps.Geocoder();
+
+                var currentLocation = new google.maps.LatLng(self.position.lat, self.position.long);
+
+                self.geocoder.geocode({
+                    'latLng': currentLocation
+                }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        self.address = results[2].formatted_address;
+                        self.printLocation();
+                    }
+                });
+            },
+
+            printLocation: function () {
+                var self = userLocation;
+                $('#results').append('Estimated address: ' + self.address + '<br>Estimated latlng: ' + self.position.lat + ', ' + self.position.long);
+            },
+
+            printError: function () {
+                $('#results').append('No location found');
+            }
+        };
+
+    } ());
+
+    $(document).ready(function () {
+        userLocation.init();
+    });
+
+</script>
+</head>
+<body>
+<div class="header_bg">
+<div class="container">
+	<div class="row header">
+		<div class="logo navbar-left">
+			<h1><a href="index.html">UMKC-SSD </a></h1>
+		</div>
+		<div class="h_search navbar-right">
+			<form>
+				<input type="text" class="text" value="Enter text here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter text here';}">
+				<input type="submit" value="search">
+			</form>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="container">
+	<div class="row h_menu">
+		<nav class="navbar navbar-default navbar-left" role="navigation">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		    </div>
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li><a href="index.html">Home</a></li>
+		        <li><a href="services.html">Services</a></li>
+		        <li><a href="about.html">About</a></li>
+		        <li><a href="contactus.aspx">Contact</a></li>
+		        <li><a href="admin.aspx">Admin Login</a></li>
+		        <li><a href="student.aspx">Studnet Login</a></li>
+                <li><a href="parking.aspx">Parking</a></li>
+                <li><a href="acesspoints.aspx">Access Points</a></li>
+                <li class="active"><a href="placesin.html">Places</a></li>
+		        
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		    <!-- start soc_icons -->
+		</nav>
+
+	</div>
+</div>
+
+	<div align="center" style="color:blue;">
+				<h3>Your current Location is:</h3><div id="results" style="color:blue; font-size: larger;"></div>
+		</div>
+        
+        <div id="container" class="containermap">
+            <div id="gmap_canvas"></div>
+            <div class="actionsmap">
+                <div class="button">
+                    <label for="gmap_where">Where:</label>
+                    <input id="gmap_where" type="text" name="gmap_where" /></div>
+                <div id="button2" class="button" onclick="findAddress(); return false;">Search for address</div>
+                <div class="button">
+                    <label for="gmap_type">Type:</label>
+                    <select id="gmap_type">
+                        <option value="art_gallery">art_gallery</option>
+                        <option value="atm">atm</option>
+                        <option value="bank">bank</option>
+                        <option value="bar">bar</option>
+                        <option value="cafe">cafe</option>
+                        <option value="food">food</option>
+                        <option value="hospital">hospital</option>
+                        <option value="police">police</option>
+                        <option value="store">store</option>
+                    </select>
+                </div>
+                <div class="button">
+                    <label for="gmap_radius">Radius:</label>
+                    <select id="gmap_radius">
+                        <option value="500">500</option>
+                        <option value="1000">1000</option>
+                        <option value="1500">1500</option>
+                        <option value="5000">5000</option>
+                    </select>
+                </div>
+                <input type="hidden" id="lat" name="lat" value="39.0274328" />
+                <input type="hidden" id="lng" name="lng" value=" -94.5751482" />
+                <div id="button1" class="button" onclick="findPlaces(); return false;">Search for objects</div>
+            </div>
+        </div>
+    </body>
+</html>
