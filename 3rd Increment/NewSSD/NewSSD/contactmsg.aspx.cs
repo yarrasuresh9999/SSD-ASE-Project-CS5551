@@ -131,13 +131,21 @@ namespace NewSSD
                     }
                     else if (cellcur == 3)
                     {
-                        TextBox tb2 = new TextBox();
+                        /*TextBox tb2 = new TextBox();
                         tb2.ID = "" + rowcur + cellcur;
                         tb2.ReadOnly = true;
                         tb2.BorderWidth = new System.Web.UI.WebControls.Unit("0px");
-                        tcell.Controls.Add(tb2);
-                        tb2.Text = ds.Tables[0].Rows[rowcur - 1]["contactemail"].ToString();
+                        //tcell.Controls.Add(tb2);
+                        tb2.Text = ds.Tables[0].Rows[rowcur - 1]["contactemail"].ToString();*/
                         trow.Cells.Add(tcell);
+                        tcell.Controls.Add(new LiteralControl());
+                        System.Web.UI.WebControls.HyperLink h = new HyperLink();
+                        h.Text = ds.Tables[0].Rows[rowcur - 1]["contactemail"].ToString();
+                        h.NavigateUrl = "mailto:" + ds.Tables[0].Rows[rowcur - 1]["contactemail"].ToString();
+                        h.NavigateUrl = "mailto:" + ds.Tables[0].Rows[rowcur - 1]["contactemail"].ToString() + "?subject=In Response to Your Message";
+                        h.ID = "" + rowcur + cellcur;
+                        tcell.Controls.Add(h);
+
                     }
                     else if (cellcur == 4)
                     {
@@ -161,7 +169,7 @@ namespace NewSSD
                         ImageButton b2 = new ImageButton();
                         b1.ID = "" + rowcur + cellcur;
                         //b1.CssClass = "fa fa-user"; b1.CssClass = "btn btn-info btn-xs";
-                        b1.ImageUrl = "/Images/erm.png";
+                        b1.ImageUrl = "/Images/msgre.png";
                         b1.Width = new System.Web.UI.WebControls.Unit("20px");
                         b1.Height = new System.Web.UI.WebControls.Unit("20px");
                         b1.Click += new System.Web.UI.ImageClickEventHandler(okbuttonclick);
@@ -191,21 +199,21 @@ namespace NewSSD
             if (Request.Form[Convert.ToString(a - 5)] != null)
             {
 
-                ssid = Request.Form[Convert.ToString(a - 3)];
+                ssid = Request.Form[Convert.ToString(a - 4)];
                 erdis.Visible = false;
                 //Response.Write(cb.ID + " " + cb.Checked + a +ssid+ "<br />");
 
                 con.Open();
                 DataSet ds5 = new DataSet();
-                string strquery5 = " UPDATE contacttable SET status='read' WHERE contactemail='" + ssid + "'";
+                string strquery5 = " UPDATE contacttable SET status='read' WHERE contactname='" + ssid + "'";
                 SqlCommand cmd5 = new SqlCommand(strquery5, con);
                 SqlDataAdapter da5 = new SqlDataAdapter(cmd5);
                 da5.Fill(ds5);
                 con.Close();
                 //ScriptManager.RegisterStartupScript(Page, Page.GetType(), "s", "<script>alert('Student Approved Successfully ')</script>", false);
-                Response.Redirect(ssid);
+                
                 Response.Redirect(Request.RawUrl);
-                susmsg.Visible = true;
+                
 
 
             }
@@ -228,7 +236,7 @@ namespace NewSSD
 
                 con.Open();
                 DataSet ds5 = new DataSet();
-                string strquery5 = " DELETE contacttable WHERE contactemail='" + ssid + "'";
+                string strquery5 = " DELETE FROM contacttable WHERE contactname='" + ssid + "'";
                 SqlCommand cmd5 = new SqlCommand(strquery5, con);
                 SqlDataAdapter da5 = new SqlDataAdapter(cmd5);
                 da5.Fill(ds5);

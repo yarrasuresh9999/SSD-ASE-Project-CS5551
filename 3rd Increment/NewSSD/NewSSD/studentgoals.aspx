@@ -57,6 +57,36 @@
             chart.draw(data, options);
         }
     </script>
+    <script type = "text/javascript">
+        $(document).ready(function () {
+
+            $("button").click(function () {
+                var userna = $("#uname").val();
+                var passwo = $("#pword").val();
+                var nm = $("#cname").val();
+                var e = $("#email").val();
+                var m = $("#mobi").val();
+                var a = $("#addr").val();
+                $.ajax({
+                    type: "GET",
+                    url: "http://kc-sce-cs551.kc.umkc.edu/aspnet_client/Group3/C2/ASEC2Insert/ASEC2Insert/Service1.svc/insertuser/" + userna + "/" + passwo + "/" + nm + "/" + e + "/" + m + "/" + a + "",
+                    dataType: "json",
+                    success: function (data) {
+                        alert('Registration Successful, Ready to Login')
+                        window.location.href = "userlogin.html";
+
+                    },
+                    error: function (data) {
+
+                        alert('Registration Failed');
+
+                    }
+                });
+
+            });
+        });
+
+</script>
 
 </head>
 

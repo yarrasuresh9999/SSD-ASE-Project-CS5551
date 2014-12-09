@@ -36,13 +36,45 @@
 <!----font-Awesome----->
    	<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
 <!----font-Awesome----->
+<script type = "text/javascript">
+    $(document).ready(function () {
+
+        $("#sb").click(function () {
+            var userna = $("#uname").val();
+            var passwo = $("#pword").val();
+            $.ajax({
+                type: "GET",
+                url: "http://kc-sce-cs551.kc.umkc.edu/aspnet_client/Group3/C2/ASEService/ASEService/Service1.svc/get/" + userna + "",
+                dataType: "json",
+                success: function (data) {
+                    if (passwo == data) {
+                        window.location.href = "userhome.html";
+                    }
+                    else {
+                        $("#uname").val('');
+                        $("#pword").val('');
+                        $("#div1").html('Invalid Username or Password');
+
+                    }
+                },
+                error: function (data) {
+
+                    $("#div1").html('Invalid Username or Password');
+
+                }
+            });
+
+        });
+    });
+
+</script>
 </head>
 <body>
 <div class="header_bg1">
 <div class="container">
 	<div class="row header">
 		<div class="logo navbar-left">
-			<h1><a href="index.html">UMKC-SSD</a></h1>
+			<h1><a href="index.html" style="color:White;">UMKC-SSD</a></h1>
 		</div>
 		<div class="h_search navbar-right">
 			<form>

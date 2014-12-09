@@ -56,7 +56,7 @@
                             <li><a href="adminhome.aspx"><i class="fa fa-desktop"></i> Dashboard</a></li>
                             <li><a href="users.aspx"><i class="fa fa-user"></i> Users</a></li>
                             <li><a href="studentrequests.aspx"><i class="fa fa-user"></i>Student Requests</a></li>
-                            <li><a href="sprofiles.html"><i class="fa fa-bar-chart-o"></i>Student Profiles</a></li>
+                            <li><a href="studentprofiles.aspx"><i class="fa fa-bar-chart-o"></i>Student Profiles</a></li>
                             <li><a href="posts.aspx"><i class="fa fa-edit"> </i>Posts</a></li>
                             <li><a href="contactmsg.aspx" class="active"><i class="fa fa-bell"> </i>Messages</a></li>
                             
@@ -240,7 +240,7 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade active in" id="ausers">
                                     <asp:Label runat="server" Text="Please select the Appropriate Check Box to perform required action" Font-Size="Small" ForeColor="Red" Visible="false" ID="erdis"></asp:Label>
-                                    <asp:Label runat="server" Text="Selected Student was Approved Successfully" Font-Size="Small" ForeColor="Blue" Visible="false" ID="susmsg"></asp:Label>
+                                   
                                         <!-- Users table -->
                                         <div class="table-responsive">
                                             <table class="table table-bordered" id="t1" runat="server">

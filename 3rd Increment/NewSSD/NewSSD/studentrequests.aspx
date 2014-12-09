@@ -56,7 +56,7 @@
                             <li><a href="adminhome.aspx" class="active"><i class="fa fa-desktop"></i> Dashboard</a></li>
                             <li><a href="users.aspx"><i class="fa fa-user"></i> Users</a></li>
                             <li><a href="studentrequests.aspx" class="active"><i class="fa fa-user"></i>Student Requests</a></li>
-                            <li><a href="sprofiles.html"><i class="fa fa-bar-chart-o"></i>Student Profiles</a></li>
+                            <li><a href="studentprofiles.aspx"><i class="fa fa-bar-chart-o"></i>Student Profiles</a></li>
                             <li><a href="posts.aspx"><i class="fa fa-edit"> </i>Posts</a></li>
                             <li><a href="contactmsg.aspx"><i class="fa fa-bell"> </i>Messages</a></li>
                             

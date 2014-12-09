@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="contactmsg.aspx.cs" Inherits="NewSSD.contactmsg" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="studentprofiles.aspx.cs" Inherits="NewSSD.studentprofiles" %>
 
 <!DOCTYPE html>
 <html>
 <head>
     <!-- Title here -->
-    <title>Messages - Contact Page </title>
+    <title>Student Profiles - Alexis</title>
     <!-- Description, Keywords and Author -->
     <meta name="description" content="Your description">
     <meta name="keywords" content="Your,Keywords">
@@ -39,7 +39,7 @@
 
                 <!-- Logo -->
                 <div class="logo">
-                    <h1><a href="index.html"><i class="fa fa-desktop br-red"></i> Alexis <span>UMKC Institute for Human Development</span></a></h1>
+                    <h1><a href="index.html"><i class="fa fa-desktop br-red"></i> Alexis <span>UMKC Institute for Human Development</span></a>
                 </div>
 
                 <!-- Sidebar navigation starts -->
@@ -53,12 +53,12 @@
                         <h4>Main</h4>
                         <!-- Sidebar links -->
                         <ul class="list-unstyled">
-                            <li><a href="adminhome.aspx"><i class="fa fa-desktop"></i> Dashboard</a></li>
-                            <li><a href="users.aspx"><i class="fa fa-user"></i> Users</a></li>
-                            <li><a href="studentrequests.aspx"><i class="fa fa-user"></i>Student Requests</a></li>
-                            <li><a href="sprofiles.html"><i class="fa fa-bar-chart-o"></i>Student Profiles</a></li>
-                            <li><a href="posts.aspx"><i class="fa fa-edit"> </i>Posts</a></li>
-                            <li><a href="contactmsg.aspx" class="active"><i class="fa fa-bell"> </i>Messages</a></li>
+                            <li><a href="index.html"><i class="fa fa-desktop"></i> Dashboard</a></li>
+                            <li><a href="users.html"><i class="fa fa-user"></i> Users</a></li>
+                            <li><a href="srequests.html"><i class="fa fa-user"></i>Student Requests</a></li>
+                            <li><a href="sprofiles.html" class="active"><i class="fa fa-bar-chart-o"></i>Student Profiles</a></li>
+                            <li><a href="posts.html"><i class="fa fa-edit"> </i>Posts</a></li>
+                            <li><a href="contactmsg.aspx"><i class="fa fa-bell"> </i>Messages</a></li>
                             
                             <!-- Mainmenu with submenu -->
 
@@ -96,12 +96,12 @@
                                 </form>
                             </div>
                         </div>
-                        <form id="Form1" runat="server">
+
                         <div class="col-md-3 col-sm-4 hidden-xs">
                             <!-- Notifications -->
                             <div class="head-noty text-center">
 
-                                <!-- Messages -->
+                                
                                 <div class="dropdown">
                                     <a href="#" id="messages" data-toggle="dropdown" class="mhead-icon"><i class="fa fa-envelope"></i> <span class="label label-danger"><asp:Label runat="server" ID="msgcountdis3"></asp:Label></span></a>
                                     <ul class="dropdown-menu" role="button" aria-labelledby="messages">
@@ -141,6 +141,7 @@
 
                                     </ul>
                                 </div>
+
 
                                 <!-- Users -->
                                 <div class="dropdown">
@@ -187,7 +188,7 @@
                                         </li>
 
                                     </ul>
-                                </div>
+                                    </div>
 
                             </div>
                             <div class="clearfix"></div>
@@ -206,9 +207,8 @@
                                 </a>
                                 <!-- Dropdown -->
                                 <ul class="dropdown-menu" aria-labelledby="profile">
-                                    
-                                    <li><a href="contactmsg.aspx">Messages <span class="badge badge-danger pull-right"><asp:Label runat="server" ID="msgcountdis"></asp:Label></span></a></li>
-                                    <li><asp:button runat="server" ID="souts" Text="Sign Out" OnClick="soclick" BorderWidth="0px" ForeColor="White" BorderColor="Black" BackColor="Black" BorderStyle="None" /></li>
+                                    <li><a href="#">Messages <span class="badge badge-danger pull-right"><asp:Label runat="server" ID="msgcountdis"></asp:Label></span></a></li>
+                                    <li><a href="admin.aspx">Sign Out</a></li>
                                 </ul>
                             </div>
                             <div class="clearfix"></div>
@@ -220,51 +220,165 @@
 
 
             <!-- Mainbar head ends -->
-            
+               
             <div class="main-content">
                 <div class="container">
 
                     <div class="page-content">
-                    
+
                         <!-- Heading -->
-                        <!-- Srequests page -->
+                        <div class="single-head">
+                            <!-- Heading -->
+                            <h3 class="pull-left"><i class="fa fa-users lblue"></i> Users</h3>
+                            <!-- Bread crumbs -->
+                            <div class="breads pull-right">
+
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <!-- Users page -->
                         <div class="page-users">
                             <!-- Nav tab -->
                             <div class="page-tabs">
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#ausers" class="br-lblue" data-toggle="tab"><i class="fa fa-user lblue"></i>Messages</a></li>
-
+                                    <li class="active"><a href="#ausers" class="br-lblue" data-toggle="tab"><i class="fa fa-user lblue"></i> Students</a></li>
+                             
+                                    <li><a href="#search" class="br-green" data-toggle="tab"><i class="fa fa-search green"></i> Search</a></li>
                                 </ul>
                                 <!-- Tab panes -->
                                 <div class="tab-content">
                                     <div class="tab-pane fade active in" id="ausers">
-                                    <asp:Label runat="server" Text="Please select the Appropriate Check Box to perform required action" Font-Size="Small" ForeColor="Red" Visible="false" ID="erdis"></asp:Label>
-                                    <asp:Label runat="server" Text="Selected Student was Approved Successfully" Font-Size="Small" ForeColor="Blue" Visible="false" ID="susmsg"></asp:Label>
                                         <!-- Users table -->
+                                        <form id="Form1" runat="server" class="form-horizontal">
+                                        <asp:Label runat="server" Text="Please select the Appropriate Check Box to perform required action" Font-Size="Small" ForeColor="Red" Visible="false" ID="erdis"></asp:Label>
                                         <div class="table-responsive">
-                                            <table class="table table-bordered" id="t1" runat="server">
+                                            <table class="table table-bordered" runat="server" id="t1">
                                                 <tr class="active">
-                                                    <th><input type="checkbox"/></th>
-                                                    <th>Contact Name</th>
-                                                    <th>Contact Email</th>
-                                                    <th>Contact Subject</th>
+                                                    <th><input type="checkbox"></th>
+                                                    <th>Student ID</th>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Mobile</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                                 
                                             </table>
                                         </div>
-                                        
+
+                                        <div class="clearfix"></div>
                                     </div>
-                                    
-                                    <asp:Label runat="server" ID="testla" ></asp:Label>
-                                    
+                                    <!-- Add new user -->
+                                    <div class="tab-pane fade" id="addnew">
+                                        <h4>Add New User</h4>
+
+                                        <form class="form-horizontal" role="form">
+
+                                            <div class="form-group">
+                                                <label for="name" class="col-md-2 control-label">Name</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control" id="name" placeholder="Name">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="username" class="col-md-2 control-label">Username</label>
+                                                <div class="col-md-10">
+                                                    <input type="text" class="form-control" id="username" placeholder="Username">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="email" class="col-md-2 control-label">Email</label>
+                                                <div class="col-md-10">
+                                                    <input type="email" class="form-control" id="email" placeholder="Email">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="password" class="col-md-2 control-label">Password</label>
+                                                <div class="col-md-10">
+                                                    <input type="password" class="form-control" id="password" placeholder="Password">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="radio" class="col-md-2 control-label">Sex</label>
+                                                <div class="col-md-10">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" id="radio" name="radio" value="male"> Male
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" id="radio" name="radio" value="female"> Female
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            </form>
+                                            
+                                            <div class="form-group">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox"> Agree Terms & Conditions
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <button type="submit" class="btn btn-info">Add</button>
+                                                    <button type="reset" class="btn btn-default">Reset</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="search">
+
+                                        <h4>Search Users</h4>
+                                        <!-- Search users -->
+                                        <div class="well">
+                                            <h5>Search</h5>
+                                            <p>Search users by name, email, phone, etc.,</p>
+                                            <!-- Search form -->
+                                            <form class="form-inline" role="form">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="search" placeholder="Type Something...">
+                                                </div>
+                                                <button type="submit" class="btn btn-default">Search</button>
+                                            </form>
+                                        </div>
+                                        <div class="well">
+                                            <!-- Advanced search -->
+                                            <h5>Advanced Search</h5>
+                                            <p>Search users by name, email, phone, etc.,</p>
+                                            <form role="form">
+                                                <div class="form-group">
+                                                    <label for="name">Name</label>
+                                                    <input type="text" class="form-control" id="name" placeholder="Enter name">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="email">Email address</label>
+                                                    <input type="text" class="form-control" id="email" placeholder="Enter email">
+                                                </div>
+                                                                                              
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox"> Include Deleted Users?
+                                                    </label>
+                                                </div>
+                                                <button type="submit" class="btn btn-default">Search</button>
+                                                <button type="reset" class="btn btn-default">Reset</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div> <!-- Tab panes End -->
                             </div>
                         </div> <!-- Users page End -->
-                        </form>
 
                     </div>
 
@@ -318,8 +432,10 @@
     <script src="js/custom.js"></script>
 
     <!-- Javascript for this page -->
+    <!-- Javascript for this page -->
 
     <script type="text/javascript">
+
     </script>
 
 </body>

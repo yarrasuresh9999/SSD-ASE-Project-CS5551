@@ -184,7 +184,7 @@
 <div class="container">
 	<div class="row header">
 		<div class="logo navbar-left">
-			<h1><a href="index.html">UMKC - SSD</a></h1>
+			<h1><a href="index.html" style="color:White;">UMKC - SSD</a></h1>
 		</div>
 		<div class="h_search navbar-right">
 			<form>

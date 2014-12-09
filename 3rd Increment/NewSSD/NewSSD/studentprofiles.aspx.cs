@@ -15,7 +15,7 @@ using System.Web.Configuration;
 
 namespace NewSSD
 {
-    public partial class contactmsg : System.Web.UI.Page
+    public partial class studentprofiles : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["ApplicationServices"].ToString());
         protected void Page_Load(object sender, EventArgs e)
@@ -59,7 +59,7 @@ namespace NewSSD
 
                 con.Close();
 
-                DataSet ds1 = new DataSet();
+            DataSet ds1 = new DataSet();
                 con.Open();
                 string srtquery1 = "SELECT studentid,studentname,semail,smobile,sstatus FROM studenttable WHERE sstatus='pending'";
                 SqlCommand cmd1 = new SqlCommand(srtquery1, con);
@@ -87,23 +87,22 @@ namespace NewSSD
                 }
 
                 con.Close();
-                generatemsgtable();
-
+                generateprofiletable();
             }
+        
         }
-
-        public void generatemsgtable()
+        public void generateprofiletable()
         {
             DataSet ds = new DataSet();
             con.Open();
-            string srtquery = "SELECT contactname,contactemail,contactsubject,status FROM contacttable ";
+            string srtquery = "SELECT studentid,studentname,semail,smobile,sstatus FROM studenttable";
             SqlCommand cmd = new SqlCommand(srtquery, con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(ds);
             int x = ds.Tables[0].Rows.Count;
             int rowcnt = x;
             int rowcur;
-            int cellcnt = 6;
+            int cellcnt = 7;
             int cellcur;
             for (rowcur = 1; rowcur <= rowcnt; rowcur++)
             {
@@ -121,38 +120,32 @@ namespace NewSSD
                     }
                     else if (cellcur == 2)
                     {
-                        TextBox tb = new TextBox();
-                        tb.ID = "" + rowcur + cellcur;
-                        tb.ReadOnly = true;
-                        tb.BorderWidth = new System.Web.UI.WebControls.Unit("0px");
-                        tcell.Controls.Add(tb);
-                        tb.Text = ds.Tables[0].Rows[rowcur - 1]["contactname"].ToString();
+                        tcell.ID = "" + rowcur + cellcur;
+                        tcell.InnerText = ds.Tables[0].Rows[rowcur - 1]["studentid"].ToString();
                         trow.Cells.Add(tcell);
                     }
                     else if (cellcur == 3)
                     {
-                        TextBox tb2 = new TextBox();
-                        tb2.ID = "" + rowcur + cellcur;
-                        tb2.ReadOnly = true;
-                        tb2.BorderWidth = new System.Web.UI.WebControls.Unit("0px");
-                        tcell.Controls.Add(tb2);
-                        tb2.Text = ds.Tables[0].Rows[rowcur - 1]["contactemail"].ToString();
+                        tcell.ID = "" + rowcur + cellcur;
+                        tcell.InnerText = ds.Tables[0].Rows[rowcur - 1]["studentname"].ToString();
                         trow.Cells.Add(tcell);
                     }
                     else if (cellcur == 4)
                     {
-                        TextBox tb1 = new TextBox();
-                        tb1.ID = "" + rowcur + cellcur;
-                        tb1.ReadOnly = true;
-                        tb1.BorderWidth = new System.Web.UI.WebControls.Unit("0px");
-                        tcell.Controls.Add(tb1);
-                        tb1.Text = ds.Tables[0].Rows[rowcur - 1]["contactsubject"].ToString();
+                        tcell.ID = "" + rowcur + cellcur;
+                        tcell.InnerText = ds.Tables[0].Rows[rowcur - 1]["semail"].ToString();
                         trow.Cells.Add(tcell);
                     }
                     else if (cellcur == 5)
                     {
                         tcell.ID = "" + rowcur + cellcur;
-                        tcell.InnerText = ds.Tables[0].Rows[rowcur - 1]["status"].ToString();
+                        tcell.InnerText = ds.Tables[0].Rows[rowcur - 1]["smobile"].ToString();
+                        trow.Cells.Add(tcell);
+                    }
+                    else if (cellcur == 6)
+                    {
+                        tcell.ID = "" + rowcur + cellcur;
+                        tcell.InnerText = ds.Tables[0].Rows[rowcur - 1]["sstatus"].ToString();
                         trow.Cells.Add(tcell);
                     }
                     else
@@ -160,18 +153,16 @@ namespace NewSSD
                         ImageButton b1 = new ImageButton();
                         ImageButton b2 = new ImageButton();
                         b1.ID = "" + rowcur + cellcur;
-                        //b1.CssClass = "fa fa-user"; b1.CssClass = "btn btn-info btn-xs";
-                        b1.ImageUrl = "/Images/erm.png";
+                        b1.ImageUrl = "/Images/ok.jpg";
                         b1.Width = new System.Web.UI.WebControls.Unit("20px");
                         b1.Height = new System.Web.UI.WebControls.Unit("20px");
-                        b1.Click += new System.Web.UI.ImageClickEventHandler(okbuttonclick);
+                        //b1.Click += new System.Web.UI.ImageClickEventHandler(okbuttonclick);
 
                         b2.ID = "0" + rowcur + cellcur;
-                        //b2.CssClass = "fa fa-trash-o"; b2.CssClass = "btn btn-danger btn-xs";
                         b2.ImageUrl = "/Images/del.jpg";
                         b2.Width = new System.Web.UI.WebControls.Unit("20px");
                         b2.Height = new System.Web.UI.WebControls.Unit("20px");
-                        b2.Click += new System.Web.UI.ImageClickEventHandler(deniedclick);
+                        //b2.Click += new System.Web.UI.ImageClickEventHandler(deniedclick);
 
                         tcell.Controls.Add(b1);
                         tcell.Controls.Add(b2);
@@ -181,72 +172,6 @@ namespace NewSSD
                 t1.Controls.Add(trow);
             }
             con.Close();
-            
-        }
-        protected void okbuttonclick(object sender, EventArgs e)
-        {
-            ImageButton im = (ImageButton)sender;
-            int a = Convert.ToInt32(im.ID);
-            string ssid;
-            if (Request.Form[Convert.ToString(a - 5)] != null)
-            {
-
-                ssid = Request.Form[Convert.ToString(a - 3)];
-                erdis.Visible = false;
-                //Response.Write(cb.ID + " " + cb.Checked + a +ssid+ "<br />");
-
-                con.Open();
-                DataSet ds5 = new DataSet();
-                string strquery5 = " UPDATE contacttable SET status='read' WHERE contactemail='" + ssid + "'";
-                SqlCommand cmd5 = new SqlCommand(strquery5, con);
-                SqlDataAdapter da5 = new SqlDataAdapter(cmd5);
-                da5.Fill(ds5);
-                con.Close();
-                //ScriptManager.RegisterStartupScript(Page, Page.GetType(), "s", "<script>alert('Student Approved Successfully ')</script>", false);
-                Response.Redirect(ssid);
-                Response.Redirect(Request.RawUrl);
-                susmsg.Visible = true;
-
-
-            }
-            else
-                erdis.Visible = true; 
-
-            
-        }
-        protected void deniedclick(object sender, EventArgs e)
-        {
-            ImageButton im = (ImageButton)sender;
-            int a = Convert.ToInt32(im.ID);
-            string ssid;
-
-            if (Request.Form[Convert.ToString(a - 5)] != null)
-            {
-                ssid = Request.Form[Convert.ToString(a - 3)];
-                erdis.Visible = false;
-                //Response.Write(cb.ID + " " + cb.Checked + a +ssid+ "<br />");
-
-                con.Open();
-                DataSet ds5 = new DataSet();
-                string strquery5 = " DELETE contacttable WHERE contactemail='" + ssid + "'";
-                SqlCommand cmd5 = new SqlCommand(strquery5, con);
-                SqlDataAdapter da5 = new SqlDataAdapter(cmd5);
-                da5.Fill(ds5);
-                con.Close();
-                //ScriptManager.RegisterStartupScript(Page, Page.GetType(), "s", "<script>alert('Student Approved Successfully ')</script>", false);
-
-
-                Response.Redirect(Request.RawUrl);
-
-
-            }
-            else
-                erdis.Visible = true;
-        }
-        protected void soclick(object sender, EventArgs e)
-        {
-            Session["adminsess"] = null;
-            Response.Redirect("admin.aspx");
         }
     }
 }

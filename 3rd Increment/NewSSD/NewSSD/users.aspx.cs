@@ -192,7 +192,7 @@ namespace NewSSD
 
                 con.Open();
                 DataSet ds5 = new DataSet();
-                string strquery5 = " DELETE usertable WHERE username='" + ssid + "'";
+                string strquery5 = " DELETE FROM usertable WHERE username='" + ssid + "'";
                 SqlCommand cmd5 = new SqlCommand(strquery5, con);
                 SqlDataAdapter da5 = new SqlDataAdapter(cmd5);
                 da5.Fill(ds5);
